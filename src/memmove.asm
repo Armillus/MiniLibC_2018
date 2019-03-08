@@ -57,13 +57,13 @@ memmove:
     add rsi, rdx                        ; src (rsi) += n (rdx)
     add rdi, rdx                        ; dest (rdi) += n (rdx)
     rep movsb                           ; copy n (rcx) bytes from src to dest
+                                        ; (copy from end to beginning)
     cld                                 ; set the direction flag to 0
     jmp .end                            ; return
 
 .copy_fast:
     rep movsb                           ; copy n (rcx) bytes from src (rsi)
                                         ; to dest (rdi)
-    jmp .end                            ; return
 
 .end:
     leave                               ; leave the program (reverse of enter)

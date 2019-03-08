@@ -53,8 +53,7 @@ clean:
 
 fclean:	clean
 	$(RM) $(NAME)
-	$(RM) $(LIB)
 
 re: fclean all
 
-.PHONY: clean fclean all re bonus
+.PHONY: clean fclean all re

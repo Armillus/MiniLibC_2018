@@ -43,11 +43,11 @@ strncmp:
     xor rcx, rcx                        ; set the counter (rcx) to 0
 
 .loop:
+    cmp rcx, rdx                        ; if counter (rcx) == n (rdx)
+    je .end                             ; then set return value and quit
     movzx r8, byte [rsi + rcx]          ; set r8B to rsi[rcx]
     cmp byte [rdi + rcx], r8B           ; if rsi[rcx] != rdi[rcx],
     jne .set_rax                        ; then set return value and quit
-    cmp rcx, rdx                        ; if counter (rcx) == n (rdx)
-    je .set_rax                         ; then set return value and quit
     cmp r8B, 0                          ; if rsi[rcx] == 0,
     je .set_rax                         ; then set return value and quit
     inc ecx                             ; increment the counter
